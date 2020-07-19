@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * @author KIYOTA, Takeshi
  */
-public class Dollar {
+public class Dollar extends Money {
 
     private int amount;
 
