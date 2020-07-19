@@ -7,9 +7,8 @@ import java.util.Objects;
  */
 class Dollar extends Money {
 
-    Dollar(int amount, String currency) {
-        this.amount = amount;
-        this.currency = currency;
+    public Dollar(int amount, String currency) {
+        super(amount, currency);
     }
 
     Money times(int multiplier) {
