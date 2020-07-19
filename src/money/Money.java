@@ -37,4 +37,8 @@ public class Money {
         // クラスではなく currency を比較する
         return amount == money.amount && currency().equals(money.currency());
     }
+
+    Money plus(Money addend) {
+        return new Money(amount + addend.amount, currency);
+    }
 }
