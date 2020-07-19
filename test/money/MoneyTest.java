@@ -3,7 +3,6 @@ package money;
 import org.junit.jupiter.api.Test;
 
 import java.rmi.server.ExportException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -70,7 +69,7 @@ public class MoneyTest {
     @Test
     public void testReduceMoneyDifferentCurrency(){
         Bank bank = new Bank();
-        bank.addRoute("CHF", "USD", 2);
+        bank.addRate("CHF", "USD", 2);
         Money result = bank.reduce(Money.franc(2), "USD");
         assertEquals(Money.dollar(1), result);
     }
@@ -78,5 +77,15 @@ public class MoneyTest {
     @Test
     public void testIdentityRate(){
         assertEquals(1, new Bank().rate("USD","USD"));
+    }
+
+    @Test
+    public void testMixedAddition(){
+        Expression fiveBucks = Money.dollar(5);
+        Expression tenFrancs = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Money result = bank.reduce(fiveBucks.plus(tenFrancs), "USD");
+        assertEquals(Money.dollar(10), result);
     }
 }
