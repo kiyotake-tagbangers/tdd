@@ -2,6 +2,7 @@ package money;
 
 /**
  * Dollar,Franc を共通化したクラス
+ *
  * @author KIYOTA, Takeshi
  */
 public class Money implements Expression {
@@ -9,16 +10,18 @@ public class Money implements Expression {
     protected int amount;
     protected String currency;
 
-    Money(int amount, String currency){
+    Money(int amount, String currency) {
         this.amount = amount;
         this.currency = currency;
     }
 
-    Money times(int multiplier){
+    Money times(int multiplier) {
         return new Money(amount * multiplier, currency);
-    };
+    }
 
-    String currency(){
+    ;
+
+    String currency() {
         return currency;
     }
 
@@ -42,9 +45,8 @@ public class Money implements Expression {
         return new Sum(this, addend);
     }
 
-    public Money reduce(String to) {
-        // 一時的な実装、フランをドルに変換する
-        int rate = (currency.equals("CHF") && to.equals("USD")) ? 2: 1;
+    public Money reduce(Bank bank, String to) {
+        int rate = bank.rate(currency, to); // 為替レートは bank 引数に問合わせる
         return new Money(amount / rate, to);
     }
 }
