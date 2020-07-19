@@ -4,10 +4,13 @@ package money;
  * Dollar,Franc を共通化したクラス
  * @author KIYOTA, Takeshi
  */
-public class Money {
+public abstract class Money {
+
     protected int amount;
 
-    static Dollar dollar(int amount) {
+    public abstract Money times(int i);
+
+    static Money dollar(int amount) {
         return new Dollar(amount);
     }
 
