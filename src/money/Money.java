@@ -12,7 +12,7 @@ public abstract class Money {
         return new Franc(amount);
     }
 
-    public abstract Money times(int i);
+    abstract Money times(int i);
 
     static Money dollar(int amount) {
         return new Dollar(amount);
