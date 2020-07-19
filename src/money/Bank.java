@@ -14,7 +14,7 @@ class Bank {
         return source.reduce(this, to);
     }
 
-    void addRoute(String from, String to, int rate) {
+    void addRate(String from, String to, int rate) {
         rates.put(new Pair(from, to), rate);
     }
 
