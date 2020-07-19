@@ -4,7 +4,7 @@ package money;
  * Dollar,Franc を共通化したクラス
  * @author KIYOTA, Takeshi
  */
-public abstract class Money {
+public class Money {
 
     protected int amount;
     protected String currency;
@@ -14,7 +14,9 @@ public abstract class Money {
         this.currency = currency;
     }
 
-    abstract Money times(int i);
+    Money times(int multiplier){
+        return null;
+    };
 
     String currency(){
         return currency;
@@ -32,7 +34,7 @@ public abstract class Money {
     public boolean equals(Object o) {
         Money money = (Money) o;
 
-        // 実クラスが等しい時のみ等価であると判定
-        return amount == money.amount && getClass().equals(money.getClass());
+        // クラスではなく currency を比較する
+        return amount == money.amount && currency().equals(money.currency());
     }
 }
