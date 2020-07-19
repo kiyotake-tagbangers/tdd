@@ -10,6 +10,8 @@ public class Money {
     @Override
     public boolean equals(Object o) {
         Money money = (Money) o;
-        return amount == money.amount;
+
+        // 実クラスが等しい時のみ等価であると判定
+        return amount == money.amount && getClass().equals(money.getClass());
     }
 }
