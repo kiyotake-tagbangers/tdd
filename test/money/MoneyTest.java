@@ -9,6 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class MoneyTest {
 
+    /**
+     * 多国通貨対応したい
+     */
     @Test
     public void testMultiplication(){
         Dollar five = new Dollar(5);
