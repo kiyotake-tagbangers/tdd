@@ -7,11 +7,13 @@ package money;
 public abstract class Money {
 
     protected int amount;
-
+    protected String currency;
 
     abstract Money times(int i);
 
-    abstract String currency();
+    String currency(){
+        return currency;
+    }
 
     static Money franc(int amount) {
         return new Franc(amount);

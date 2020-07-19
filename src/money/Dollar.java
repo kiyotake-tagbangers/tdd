@@ -7,8 +7,6 @@ import java.util.Objects;
  */
 class Dollar extends Money {
 
-    private String currency;
-
     Dollar(int amount) {
         this.amount = amount;
         currency = "USD";
@@ -18,8 +16,4 @@ class Dollar extends Money {
         return new Dollar(amount * multiplier);
     }
 
-    @Override
-    String currency() {
-        return currency;
-    }
 }
