@@ -7,15 +7,25 @@ package money;
 public abstract class Money {
 
     protected int amount;
+    protected String currency;
 
-    static Money franc(int amount) {
-        return new Franc(amount);
+    Money(int amount, String currency){
+        this.amount = amount;
+        this.currency = currency;
     }
 
     abstract Money times(int i);
 
+    String currency(){
+        return currency;
+    }
+
+    static Money franc(int amount) {
+        return new Franc(amount, "CHF");
+    }
+
     static Money dollar(int amount) {
-        return new Dollar(amount);
+        return new Dollar(amount, "USD");
     }
 
     @Override
