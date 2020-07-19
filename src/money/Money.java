@@ -8,6 +8,10 @@ public abstract class Money {
 
     protected int amount;
 
+    static Money franc(int amount) {
+        return new Franc(amount);
+    }
+
     public abstract Money times(int i);
 
     static Money dollar(int amount) {
